@@ -8,7 +8,7 @@
         },
         validate: function(attrs) {
             if (_.isEmpty(attrs.title)) {
-                return 'title must not be empty';
+                return 'タスクが入力されていません。タスクを入力してください！';
             }
         },
         initialize: function() {
@@ -88,7 +88,6 @@
         },
         submit: function(e) {
             e.preventDefault();
-            //var task = new Task({title: $('#title').val(), completed:false});
             var task = new Task();
             if (task.set({title: $('#title').val(), completed:false}, {validate: true})) {
                 this.collection.add(task);
@@ -100,16 +99,16 @@
     // Collectionを格納
     var tasks = new Tasks([
         {
-            title: 'task1',
+            title: 'タスク管理開発',
             completed: true
         },
         {
-            title: 'task2',
+            title: '勤務表作成',
             completed: false
             
         },
         {
-            title: 'task3',
+            title: 'レンタカー予約',
             completed: false
         }
     ]);

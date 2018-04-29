@@ -8,13 +8,17 @@
             text-decoration: line-through;
             color: gray;
         }
+        #error {
+            color: red;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Tasks</h1>
+    <h1>タスク管理</h1>
 
     <form id="addTask">
+        <p>タスク名を入力してください</p>
         <input type="text" id="title">
         <input type="submit" value="add">
         <span id="error"></span>
@@ -23,14 +27,14 @@
     <div id="tasks">
     </div>
 
-    <p>Tasks left: <span id="count"></span></p>
+    <p>残タスク数：<span id="count"></span></p>
 
     <script type="text/template" id="task-template">
         <input type="checkbox" class="toggle" <%= completed ? 'checked' : ''%>>
         <span class="<%= completed ? 'completed' : '' %>">
         <%- title %>
         </span>
-        <span class="delete">[x]</span>
+        <span class="delete"><input type="button" value="削除"></span>
     </script>
     <script src="underscore.js"></script>
     <script src="jquery.js"></script>
